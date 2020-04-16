@@ -1,0 +1,6 @@
+<h3>"Toys" List</h3>
+<ul>
+    <% for toy in @toys%>
+        <li><%= toy.name %> | <%= link_to("Show More", show_path(toy.id)) %></li>
+    <% end %>
+</ul>

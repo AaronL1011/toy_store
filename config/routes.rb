@@ -1,3 +1,8 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  get "/toys", to: "toys#index", as: :home
+  get "/toys/:id", to: "toys#show", as: :show
+  post "/toys", to: "toys#create"
+  put "/toys/:id", to: "toys#update"
+  patch "/toys/:id", to: "toys#update"
+  delete "/toys/:id", to: "toys#index"
 end
