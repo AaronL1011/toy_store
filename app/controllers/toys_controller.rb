@@ -32,13 +32,13 @@ class ToysController < ApplicationController
         @toy.date = params[:date]
         @toy.user = params[:user]
 
+        @toy = Toy.find(params[:id])
         render json: @toy
     end
     
     #Remove a celebrity
     def destroy
-        @toy = Toy.find(params[:id])
-        @toy.destroy
+        @toy = Toy.find(params[:id]).destroy
     end
 
 end

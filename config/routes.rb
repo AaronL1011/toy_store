@@ -4,5 +4,5 @@ Rails.application.routes.draw do
   post "/toys", to: "toys#create"
   put "/toys/:id", to: "toys#update"
   patch "/toys/:id", to: "toys#update"
-  delete "/toys/:id", to: "toys#index"
+  delete "/toys/:id", to: "toys#destroy"
 end
