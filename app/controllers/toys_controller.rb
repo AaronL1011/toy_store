@@ -12,7 +12,11 @@ class ToysController < ApplicationController
     end
     
     def new
-        
+
+    end
+
+    def edit
+        @toy = Toy.find(params["id"])
     end
     #Create a new celebrity
     def create
@@ -23,19 +27,22 @@ class ToysController < ApplicationController
 
         @toy = Toy.create(name: name, description: description, date: date, user: user)
 
-        render json: @toy
+        redirect_to action: "index"
     end
     
     #Update a celebrity
     def update
         updated_toy = Toy.update(params["id"], name: params["name"], description: params["description"], date: params["date"], user: params["user"])
 
-        render json: updated_toy
+        redirect_to action: "show", id: params["id"]
     end
     
     #Remove a celebrity
     def destroy
-        @toy = Toy.find(params["id"]).destroy
+        @toy = Toy.find(params[:id])
+        @toy.destroy
+
+        redirect_to home_path
     end
 
 end

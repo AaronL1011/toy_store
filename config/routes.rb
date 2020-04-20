@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   get "/toys", to: "toys#index", as: :home
   get "/toys/new", to: "toys#new", as: :new_entry
+  get "/toys/:id/edit", to: "toys#edit", as: :edit
   get "/toys/:id", to: "toys#show", as: :show
   post "/toys", to: "toys#create"
   put "/toys/:id", to: "toys#update"

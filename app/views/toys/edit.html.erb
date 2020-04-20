@@ -1,0 +1,12 @@
+<h3>Edit Entry</h3>
+<form method="POST" action="/toys/<%= @toy.id%>">
+    <input type="hidden" value="<%= form_authenticity_token %>" name="authenticity_token" />
+    <input type="hidden" name="_method" value="put" />
+    Name: <input type="text" name="name" value="<%= @toy.name%>"/><br>
+    Description: <input type="text" name="description" value="<%= @toy.description%>" /><br>
+    Date: <input type="date" name="date" value="<%= @toy.date%>" /><br>
+    User: <input type="text" name="user" value="<%= @toy.user%>" /><br>
+    <button type="submit">Update</button>
+</form>
+<br>
+<%= link_to("Return Home", home_path) %>
