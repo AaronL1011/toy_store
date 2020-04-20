@@ -1,4 +1,5 @@
 <h3>"Toys" List</h3>
+<%= link_to("Add New", new_entry_path) %>
 <ul>
     <% for toy in @toys%>
         <li><%= toy.name %> | <%= link_to("Show More", show_path(toy.id)) %></li>
