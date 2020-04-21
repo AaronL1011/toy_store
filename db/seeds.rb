@@ -6,12 +6,13 @@ for i in 1..20
 
     puts "Created #{i} Users"
 end
-for i in 2..21
-    User.find(id: i).toys.create(
+for i in 1..20
+        Toy.create(
         name: Faker::Cannabis.strain,
         description: Faker::Cannabis.health_benefit,
-        date: Faker::Date.in_date_period
+        date: Faker::Date.in_date_period,
+        user_id: "#{i}"
     )
 
-    puts "Created #{i-1} Toys"
+    puts "Created #{i} Toys"
 end
