@@ -9,6 +9,8 @@ class ToysController < ApplicationController
     #Show a single celebrity
     def show
         @toy = Toy.find(params[:id])
+        @user = User.find(@toy["user_id"])
+        @manufacturer = Manufacturer.find(@toy["manufacturer_id"])
     end
     
     def new
@@ -32,7 +34,7 @@ class ToysController < ApplicationController
     
     #Update a celebrity
     def update
-        updated_toy = Toy.update(params["id"], name: params["name"], description: params["description"], date: params["date"], user: params["user"])
+        updated_toy = Toy.update(params["id"], name: params["name"], description: params["description"], date: params["date"])
 
         redirect_to action: "show", id: params["id"]
     end

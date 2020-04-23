@@ -1,6 +1,13 @@
+for i in 0..4
+    Manufacturer.create(
+        name: Faker::Cannabis.brand,
+        location: Faker::Address.state 
+    )
+end
+
 for i in 1..20
     User.create(
-        email: Faker::Internet.email ,
+        email: Faker::Internet.email,
         password: Faker::Internet.password
     )
 
@@ -11,7 +18,8 @@ for i in 1..20
         name: Faker::Cannabis.strain,
         description: Faker::Cannabis.health_benefit,
         date: Faker::Date.in_date_period,
-        user_id: "#{i}"
+        user_id: "#{i}",
+        manufacturer_id: "#{rand(4)+1}"
     )
 
     puts "Created #{i} Toys"

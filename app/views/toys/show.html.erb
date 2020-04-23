@@ -8,7 +8,8 @@
 </form><br>
 <strong>Description: </strong><%= @toy.description%><br>
 <strong>Date Added: </strong><%= @toy.date%><br>
-<strong>Added By: </strong><%= @toy.user%>
+<strong>Added By: </strong><%= @user.email%><br>
+<strong>Brand: </strong><%= @manufacturer.name%>
 <br><br>
 <%= link_to("Return Home", home_path) %>
 
