@@ -3,8 +3,10 @@ class CreateToys < ActiveRecord::Migration[5.2]
     create_table :toys do |t|
       t.string :name
       t.text :description
-      t.date :date
-      t.string :user
+      t.date :date_posted
+      t.string :posted_by
+
+      t.timestamps
     end
   end
 end

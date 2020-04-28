@@ -1,7 +1,20 @@
-<h3>"Toys" List</h3>
-<%= link_to("Add New", new_entry_path) %>
-<ul>
-    <% for toy in @toys%>
-        <li><%= toy.name %> | <%= link_to("Show More", show_path(toy.id)) %></li>
-    <% end %>
-</ul>
+<p id="notice"><%= notice %></p>
+
+<h1>Toys</h1>
+<%= link_to 'New Toy', new_toy_path %>
+<div class="flex-container">
+  <% @toys.each do |toy| %>
+    <div class="card">
+      <% if toy.picture.attached? %>
+        <%= image_tag toy.picture, :class => "img-preview" %>
+      <% end %>
+      <div class="container">
+        <h4><b><%= link_to toy.name, toy %></b></h4>
+        <p><%= toy.description %></p><br>
+        <%= link_to 'Edit', edit_toy_path(toy) %>
+        <%= link_to 'Destroy', toy, method: :delete, data: { confirm: 'Are you sure?' } %>
+      </div>
+    </div>
+  <% end %>
+</div>
+<br>

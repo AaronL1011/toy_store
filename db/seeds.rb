@@ -1,26 +1,25 @@
-for i in 0..4
-    Manufacturer.create(
-        name: Faker::Cannabis.brand,
-        location: Faker::Address.state 
+# This file should contain all the record creation needed to seed the database with its default values.
+# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
+#
+# Examples:
+#
+#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
+#   Character.create(name: 'Luke', movie: movies.first)
+
+user_ids = []
+manufacturer_ids = []
+
+for i in 1..10
+    manufacturer = Manufacturer.create(
+        name: "Manufacturer#{i}",
+        location: "Location#{i}"
     )
+    p "Created #{i} manufacturers!"
+
+    manufacturer_ids.push(manufacturer.id)
 end
 
-for i in 1..20
-    User.create(
-        email: Faker::Internet.email,
-        password: Faker::Internet.password
-    )
 
-    puts "Created #{i} Users"
-end
 for i in 1..20
-        Toy.create(
-        name: Faker::Cannabis.strain,
-        description: Faker::Cannabis.health_benefit,
-        date: Faker::Date.in_date_period,
-        user_id: "#{i}",
-        manufacturer_id: "#{rand(4)+1}"
-    )
-
-    puts "Created #{i} Toys"
+   
 end

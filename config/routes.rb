@@ -1,10 +1,8 @@
 Rails.application.routes.draw do
-  get "/toys", to: "toys#index", as: :home
-  get "/toys/new", to: "toys#new", as: :new_entry
-  get "/toys/:id/edit", to: "toys#edit", as: :edit
-  get "/toys/:id", to: "toys#show", as: :show
-  post "/toys", to: "toys#create"
-  put "/toys/:id", to: "toys#update"
-  patch "/toys/:id", to: "toys#update"
-  delete "/toys/:id", to: "toys#destroy"
+  get "/", to: "pages#home", as: "root"
+  devise_for :users
+  resources :toys
+  resources :manufacturers
+  resources :users
+  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

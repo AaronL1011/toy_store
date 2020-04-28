@@ -1,15 +1,36 @@
-<h3><%= @toy.name%></h3>
-<br>
-<%= link_to("Edit", edit_path(@toy)) %> 
-<form action="<%= show_path(@toy.id)%>" method="POST">
-    <input type="hidden" value="<%= form_authenticity_token %>" name="authenticity_token" />
-    <input type="hidden" name="_method" value="delete" />
-    <button type="submit">Delete</button>
-</form><br>
-<strong>Description: </strong><%= @toy.description%><br>
-<strong>Date Added: </strong><%= @toy.date%><br>
-<strong>Added By: </strong><%= @user.email%><br>
-<strong>Brand: </strong><%= @manufacturer.name%>
-<br><br>
-<%= link_to("Return Home", home_path) %>
+<p id="notice"><%= notice %></p>
 
+<p>
+  <strong>Name:</strong>
+  <%= @toy.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @toy.description %>
+</p>
+
+<p>
+  <strong>Date posted:</strong>
+  <%= @toy.date_posted %>
+</p>
+
+<p>
+  <strong>User ID:</strong>
+  <%= @toy.user_id %>
+</p>
+
+<p>
+  <strong>Manufacturer ID:</strong>
+  <%= @toy.manufacturer_id %>
+</p>
+
+<% if @toy.picture.attached? %>
+  <p>
+    <strong>Picture:</strong>
+    <%= image_tag @toy.picture %>
+  </p>
+<% end %>
+
+<%= link_to 'Edit', edit_toy_path(@toy) %> |
+<%= link_to 'Back', toys_path %>
